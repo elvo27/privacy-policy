@@ -15,14 +15,34 @@
       <header class="policy-header">
         <span class="policy-meta__eyebrow">CountFit</span>
         <h1>Privacy Policy</h1>
-        <p>
-          CountFit (the "App") is a local-first workout tracking app that stores workout records on the user's device.
-          This policy explains what information the App handles, how it is stored, and what choices users have.
+        <p class="policy-lead">
+          CountFit (the "App") is a local-first workout tracker for recording exercise names and date-based repetition counts.
+          This policy explains what information the current App handles, where it is stored,
+          and how backup, restore, and deletion work.
         </p>
         <div class="policy-meta">
-          <span class="policy-meta__item">Effective date: March 27, 2026</span>
-          <span class="policy-meta__item">App version reference: 1.0.0</span>
+          <span class="policy-meta__item">Effective date: April 6, 2026</span>
+          <span class="policy-meta__item">App version reference: 1.0.1</span>
+          <span class="policy-meta__item">Platforms: iOS / Android</span>
           <span class="policy-meta__item">Language: English</span>
+        </div>
+        <div class="fact-grid">
+          <article class="fact-card">
+            <span class="fact-card__label">Accounts</span>
+            <strong>Not used</strong>
+          </article>
+          <article class="fact-card">
+            <span class="fact-card__label">Core data</span>
+            <strong>Exercise names and rep logs</strong>
+          </article>
+          <article class="fact-card">
+            <span class="fact-card__label">Operator server upload</span>
+            <strong>None</strong>
+          </article>
+          <article class="fact-card">
+            <span class="fact-card__label">Restore path</span>
+            <strong>Device backup / restore</strong>
+          </article>
         </div>
         <div class="notice">
           <strong>Replace placeholders before publishing</strong>
@@ -43,26 +63,29 @@
 
       <section class="section">
         <h2>2. Information the App Handles</h2>
-        <p>The App may handle information that the user enters directly or that is generated while using the App, including:</p>
+        <p>The App handles information entered by the user or calculated inside the App, including:</p>
         <ul>
-          <li>Exercise names</li>
-          <li>Date-based workout counts and logs</li>
-          <li>App setting data such as language preference and dark mode preference</li>
+          <li>Exercise names created or edited by the user</li>
+          <li>Date-based workout counts and local workout logs</li>
+          <li>Derived daily, weekly, monthly, and yearly statistics generated from those local records</li>
         </ul>
         <p>
-          The current version of the App does not provide account registration, login, payment processing, advertising ID collection, or location tracking.
+          The current version of the App does not provide account registration, login, payment processing,
+          advertising ID collection, location tracking, contact access, photo access, microphone access,
+          or HealthKit / Google Fit integration.
         </p>
       </section>
 
       <section class="section">
         <h2>3. How Information Is Stored</h2>
         <p>
-          Workout records entered by the user are stored locally on the user's device.
-          The current version of the App does not use server-side account sync.
+          Workout records are stored in a local SQLite database on the user's device.
+          The current version of the App does not upload workout logs to an operator-controlled server
+          and does not offer real-time multi-device sync.
         </p>
         <ul>
-          <li>iOS: Data is stored in a local on-device database and may be included in iCloud device backups depending on the user's backup settings.</li>
-          <li>Android: Data is stored in a local on-device database and may be included in Android backup and restore depending on the user's Google backup settings.</li>
+          <li>iOS: The database is stored under the app <span class="inline-code">Application Support</span> directory and may be included in iCloud device backups if the user enables that backup setting.</li>
+          <li>Android: The database and related SQLite sidecar files may be included in Google Auto Backup and device transfer rules, depending on the user's backup settings.</li>
         </ul>
         <p>
           This is operating system backup behavior, not real-time cloud synchronization.
@@ -75,7 +98,7 @@
         <ul>
           <li>Recording and displaying workout counts</li>
           <li>Providing daily, weekly, monthly, and yearly statistics</li>
-          <li>Maintaining app settings and core user experience</li>
+          <li>Supporting core features such as renaming exercises, browsing dates, and resetting the current exercise history</li>
           <li>Supporting device-level backup and restore behavior</li>
         </ul>
       </section>
@@ -86,17 +109,21 @@
           In the current version, the App operator does not collect the user's workout records on a separate proprietary server and does not sell that data.
         </p>
         <p>
-          However, if the user enables device backup features, copies of device data may be handled under Apple or Google backup policies.
+          The current App also does not include a separate analytics SDK, advertising SDK, or account sign-in SDK.
+        </p>
+        <p>
+          However, if the user enables device backup features, backup copies of device data may be handled under Apple or Google backup policies.
         </p>
       </section>
 
       <section class="section">
         <h2>6. Retention and Deletion</h2>
         <p>
-          Workout records may remain on the user's device until the user deletes them in the App or removes the App from the device.
+          Workout records may remain on the user's device until the user edits, resets, or removes them, or deletes the App.
         </p>
         <ul>
-          <li>The App includes a reset feature that deletes the history for the currently selected exercise.</li>
+          <li>The App includes a reset feature that deletes the history for the currently selected exercise only.</li>
+          <li>Exercise names can be edited in the App.</li>
           <li>Deleting the App may remove local data from the device, subject to operating system behavior.</li>
           <li>Backup copies may remain for some time under Apple or Google backup policies.</li>
         </ul>
@@ -107,7 +134,8 @@
         <p>Users may directly take the following actions:</p>
         <ul>
           <li>Edit exercise names</li>
-          <li>Edit or reset workout records</li>
+          <li>Change dates and update workout counts</li>
+          <li>Reset the currently selected exercise history</li>
           <li>Delete the App</li>
           <li>Manage iCloud backup or Google backup settings on the device</li>
         </ul>
