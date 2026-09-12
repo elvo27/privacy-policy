@@ -39,7 +39,7 @@
         <p class="lead">Gridora is a mobile logic puzzle in which players satisfy number constraints to complete an ON/OFF pattern. This policy explains what information the App handles, how the Daily world ranking and advertising services work, and the choices available to users.</p>
         <div class="meta">
           <span>Effective September 6, 2026</span>
-          <span>Updated September 6, 2026</span>
+          <span>Updated September 12, 2026</span>
           <span>iOS · Android</span>
         </div>
         <div class="facts" aria-label="Privacy summary">
@@ -51,6 +51,7 @@
         <div class="notice">
           <strong>Current advertising privacy configuration</strong>
           Gridora includes the Google Mobile Ads SDK. For an all-ages audience, every ad request is limited to G-rated, child/unknown-age-treated, non-personalized ads, and Gridora does not request Android AAID or iOS IDFA. Interstitial ads appear only at an eligible Quick Play next-puzzle transition; rewarded ads are shown only when a player chooses a logical hint.
+          <p>The current iOS TestFlight 1.0(5) build uses only Google's official test ads. Its European consent-flow test settings may disable under-age-of-consent treatment to exercise that flow. Test ads still communicate with Google servers and do not mean that no data is collected.</p>
         </div>
       </header>
 
@@ -66,7 +67,11 @@
           <div class="cards">
             <div class="data-card">
               <h3>Daily ranking and anonymous account</h3>
-              <p>When you use the online Daily ranking, Gridora creates a Supabase anonymous account. We process a randomly assigned user identifier, your optional public nickname, puzzle ID, date, generator version, difficulty and seed, completion and ranking times, hint, undo and reset counts, and record creation or update timestamps.</p>
+              <p>When online features are enabled and a connection is available, Gridora creates a Supabase anonymous account or restores its locally saved authentication session at app startup. No separate sign-up screen, real name, or email address is required. We process a randomly assigned user identifier, your optional public nickname, puzzle ID, date, generator version, difficulty and seed, completion and ranking times, hint, undo and reset counts, and record creation or update timestamps. The public Daily leaderboard displays your nickname and submitted game record.</p>
+            </div>
+            <div class="data-card">
+              <h3>Reports, blocks, and account protection</h3>
+              <p>If you report or block a leaderboard player, we process the requesting and target user identifiers, associated record, nickname at the time of reporting, selected reason, processing timestamps, and moderation actions. We also retain server-verified Gridora account origin and registration timestamps to prevent deletion of the wrong account. Reports and block lists are not themselves displayed on the public leaderboard.</p>
             </div>
             <div class="data-card">
               <h3>Information stored on your device</h3>
@@ -92,9 +97,10 @@
             <li>Store personal-best Daily results and calculate and display world rankings</li>
             <li>Preserve game preferences and local progress</li>
             <li>Secure the service, diagnose errors, and prevent abuse</li>
+            <li>Review inappropriate-nickname reports, apply personal blocks or moderation restrictions, and safely delete accounts</li>
             <li>In AdMob-enabled versions, serve and frequency-limit ads, measure performance, provide analytics, and prevent advertising fraud</li>
           </ul>
-          <p>The operator does not intentionally send the Supabase user ID or ranking nickname to Google AdMob and does not sell personal information. Gridora currently does not use personalized advertising or cross-app tracking. Google's advertising data processing may vary with region, device settings, and the restricted ad configuration.</p>
+          <p>The operator does not intentionally send the Supabase user ID or ranking nickname to Google AdMob, use that ranking data for cross-app advertising tracking, or sell personal information. The app disables ads personalization and applies child-directed ad treatment. This does not mean the advertising SDK performs no data collection or measurement. Google's advertising data processing may vary with region, device settings, and the restricted ad configuration.</p>
         </section>
 
         <section class="section">
@@ -103,7 +109,7 @@
           <div class="service-list">
             <div class="service">
               <h3>Supabase, Inc.</h3>
-              <p>Provides anonymous authentication and hosts profile and Daily ranking data.</p>
+              <p>Provides anonymous authentication and hosts profiles, Daily rankings, reports, blocks, and account-protection data.</p>
               <a href="https://supabase.com/privacy" rel="noopener noreferrer">Supabase Privacy Policy</a>
             </div>
             <div class="service">
@@ -118,7 +124,7 @@
 
         <section class="section">
           <h2>5. Advertising consent and choices</h2>
-          <p>Gridora checks privacy status through Google's User Messaging Platform before initializing the advertising SDK. Because the current build applies under-age treatment to every user, a European regulations consent message may be suppressed. If UMP requires a privacy-options entry point, Settings provides a way to review the available choices.</p>
+          <p>Gridora checks privacy status through Google's User Messaging Platform before initializing the advertising SDK. The normal ad configuration applies under-age-of-consent treatment to every user, so a European regulations consent message may be suppressed. TestFlight verification settings may disable this treatment to test the consent flow. When UMP reports an available consent form, the current app offers a Privacy Options entry in Settings to reopen it. Availability and choices depend on region, SDK responses, and test settings.</p>
           <ul>
             <li>Ads are currently requested only as non-personalized or limited ads.</li>
             <li>Gridora does not request iOS IDFA, so the current build does not show an App Tracking Transparency prompt.</li>
@@ -127,15 +133,18 @@
           </ul>
         </section>
 
-        <section class="section">
+        <section class="section" id="deletion">
           <h2>6. Retention and deletion</h2>
           <ul>
             <li>Local records and settings may remain until you clear the App's data or uninstall the App.</li>
             <li>Profile and Daily ranking records may be retained while needed to operate the service and rankings or until an eligible deletion request is completed.</li>
+            <li>Report, block, and account-protection information supports those features and safe deletion checks, and is handled with account deletion as described below.</li>
             <li>Uninstalling the App clears its local container but does not automatically delete server ranking records stored by Supabase.</li>
             <li>Provider security logs, backups, and advertising data may be retained according to each provider's policy and legal obligations.</li>
           </ul>
-          <p>To request deletion of server records, contact us using the details below. Because the account is anonymous, we may need information available from the App or another verification step to locate the correct record and prevent deletion of someone else's data.</p>
+          <p>In the latest app, start deletion from <strong>Settings → Delete Anonymous Account</strong>. The server checks that the currently authenticated account was issued exclusively for Gridora and is not linked to or used by another service. When the checks pass, it deletes that anonymous authentication account and its Gridora profile, Daily records, and related report/block data. It does not delete another app's accounts or records.</p>
+          <p>After the server confirms success, the app displays completion and clears the local online credentials and queued uploads. Local game data such as personal bests, streaks, and preferences remains. The app does not automatically create a replacement account until you choose to reconnect online.</p>
+          <p>Accounts from earlier test versions whose origin cannot be verified, or accounts linked to another service, are not automatically deleted. The app reports that deletion did not complete and preserves the existing credentials. If a network problem leaves completion uncertain, the app does not report success and allows a retry. You may contact support below for help with an earlier account or lost access. Uninstalling the app alone does not delete the server account.</p>
         </section>
 
         <section class="section">
