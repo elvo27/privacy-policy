@@ -51,7 +51,7 @@
         <div class="notice">
           <strong>Current advertising privacy configuration</strong>
           Gridora includes the Google Mobile Ads SDK. For an all-ages audience, every ad request is limited to G-rated, child/unknown-age-treated, non-personalized ads, and Gridora does not request Android AAID or iOS IDFA. Interstitial ads appear only at an eligible Quick Play next-puzzle transition; rewarded ads are shown only when a player chooses a logical hint.
-          <p>The current iOS TestFlight 1.0(5) build uses only Google's official test ads. Its European consent-flow test settings may disable under-age-of-consent treatment to exercise that flow. Test ads still communicate with Google servers and do not mean that no data is collected.</p>
+          <p>iOS 1.0(6) is the public-distribution build using the restrictions above. The earlier TestFlight 1.0(5) uses Google's official test ads and may use European consent-flow test settings. Installing through TestFlight alone does not select test ads. Test ads still communicate with Google servers and do not mean that no data is collected.</p>
         </div>
       </header>
 
@@ -124,7 +124,7 @@
 
         <section class="section">
           <h2>5. Advertising consent and choices</h2>
-          <p>Gridora checks privacy status through Google's User Messaging Platform before initializing the advertising SDK. The normal ad configuration applies under-age-of-consent treatment to every user, so a European regulations consent message may be suppressed. TestFlight verification settings may disable this treatment to test the consent flow. When UMP reports an available consent form, the current app offers a Privacy Options entry in Settings to reopen it. Availability and choices depend on region, SDK responses, and test settings.</p>
+          <p>Gridora checks privacy status through Google's User Messaging Platform before initializing the advertising SDK. The normal ad configuration applies under-age-of-consent treatment to every user, so a European regulations consent message may be suppressed. Separate verification builds may disable this treatment to test the consent flow. iOS 1.0(6) requests ads only when UMP permits ad requests and offers a Privacy Options entry in Settings when UMP requires it. Earlier versions and Android use consent status and form availability. Availability and choices depend on region, SDK responses, and build settings.</p>
           <ul>
             <li>Ads are currently requested only as non-personalized or limited ads.</li>
             <li>Gridora does not request iOS IDFA, so the current build does not show an App Tracking Transparency prompt.</li>
